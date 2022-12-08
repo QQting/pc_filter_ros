@@ -1,0 +1,26 @@
+<launch>
+
+   	<arg name="open_rviz" default="false" />
+   	<arg name="open_bag" default="false" />
+
+    <node name="pc_filter" pkg="pc_filter_ros" type="pc_filter" output="screen">
+        <param name="min_limit_x" value="-10" />
+        <param name="max_limit_x" value="10" />
+        <param name="min_limit_y" value="-10" />
+        <param name="max_limit_y" value="10" />
+        <param name="min_limit_z" value="-10" />
+        <param name="max_limit_z" value="10" />
+        <param name="reversed_filter" value="False"/>  
+        <param name="observed_frame_id" value="velodyne"/>
+        <param name="filtered_frame_id" value="velodyne_filtered" />
+        <param name="input_pc_topic" value="/velodyne_points" />
+        <param name="output_pc_topic" value="/velodyne_points_filtered" />
+    </node>
+    
+    <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" />
+    
+	<node if="$(arg open_rviz)" name="rviz" pkg="rviz" type="rviz" args="-d $(find pc_filter_ros)/rviz/pc_view.rviz" />
+
+    <node if="$(arg open_bag)" name="player" pkg="rosbag" type="play" output="screen" args="--clock -l $(find pc_filter_ros)/bag/pointcloud_vlp16_10hz_2022-12-06.bag"/>
+
+</launch>
