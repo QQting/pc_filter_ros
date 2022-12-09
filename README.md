@@ -2,7 +2,7 @@
 
 This package uses PassThrough filter of PCL for ROS development.
 
-Currently, this package has only been tested on ROS 1 melodic. But ROS 1 noetic sholud also work.
+This package has been tested on both ROS 1 melodic and noetic.
 
 ![](resource/pc_filter_ros_screenshot.png)
 
