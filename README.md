@@ -31,7 +31,7 @@ roslaunch pc_filter_ros pc_filter.launch open_rviz:=true
 
 You can adjust the limit_x, limit_y, limit_z in the `rqt_reconfigure` to test the filter.
 
-If you don't have a real sensor able to publish pointcloud, please download `pointcloud_vlp16_10hz_2022-12-06.bag` from my [google drive](https://drive.google.com/file/d/1SkRIc4VNWrtuuOMKD7t2YVnMX71_y6wz/view?usp=sharing), and place it to `~/pc_filter_ws/src/bag/`.
+If you don't have a real sensor able to publish pointcloud, please download `pointcloud_vlp16_10hz_2022-12-06.bag` from my [google drive](https://drive.google.com/file/d/1SkRIc4VNWrtuuOMKD7t2YVnMX71_y6wz/view?usp=sharing), and place it to `~/pc_filter_ws/src/pc_filter_ros/bag/`.
 
 Then append the parameter `open_bag:=true` when running the launch file:
 
