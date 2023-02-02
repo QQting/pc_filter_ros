@@ -63,21 +63,21 @@ void filterCallback(const sensor_msgs::PointCloud2ConstPtr& sensor_message_pc)
 void reconfigureCallback(pc_filter_ros::PcFilterConfig &config, uint32_t level)
 {
   ROS_DEBUG("Reconfigure Request: x=[%.2lf, %.2lf], y=[%.2lf, %.2lf],  z=[%.2lf, %.2lf], negative=%d", 
-            config.min_limit_x,
-            config.max_limit_x,
-            config.min_limit_y,
-            config.max_limit_y,
-            config.min_limit_z,
-            config.max_limit_z,
+            config.x_min,
+            config.x_max,
+            config.y_min,
+            config.y_max,
+            config.z_min,
+            config.z_max,
             config.reversed_filter
           );
   
-  min_limit_x_ = config.min_limit_x;
-  max_limit_x_ = config.max_limit_x;
-  min_limit_y_ = config.min_limit_y;
-  max_limit_y_ = config.max_limit_y;
-  min_limit_z_ = config.min_limit_z;
-  max_limit_z_ = config.max_limit_z;
+  min_limit_x_ = config.x_min;
+  max_limit_x_ = config.x_max;
+  min_limit_y_ = config.y_min;
+  max_limit_y_ = config.y_max;
+  min_limit_z_ = config.z_min;
+  max_limit_z_ = config.z_max;
   reversed_filter_ = config.reversed_filter;
 }
 

@@ -4,17 +4,23 @@
    	<arg name="open_bag" default="false" />
 
     <node name="pc_filter" pkg="pc_filter_ros" type="pc_filter" output="screen">
-        <param name="min_limit_x" value="-10" />
+        <!-- <param name="min_limit_x" value="-10" />
         <param name="max_limit_x" value="10" />
         <param name="min_limit_y" value="-10" />
         <param name="max_limit_y" value="10" />
         <param name="min_limit_z" value="-10" />
-        <param name="max_limit_z" value="10" />
+        <param name="max_limit_z" value="10" /> -->
+    <param name="x_min" value="0.6"/>
+    <param name="x_max" value="2.0"/>
+    <param name="y_min" value="-1.2"/>
+    <param name="y_max" value="1.2"/>
+    <param name="z_min" value="-5.0"/>
+    <param name="z_max" value="5.0"/>
         <param name="reversed_filter" value="False"/>  
-        <param name="observed_frame_id" value="velodyne"/>
-        <param name="filtered_frame_id" value="velodyne_filtered" />
-        <param name="input_pc_topic" value="/velodyne_points" />
-        <param name="output_pc_topic" value="/velodyne_points_filtered" />
+        <param name="observed_frame_id" value="os_sensor"/>
+        <param name="filtered_frame_id" value="os_filtered" />
+        <param name="input_pc_topic" value="/ouster/points" />
+        <param name="output_pc_topic" value="/ouster/points/filtered" />
     </node>
     
     <node name="rqt_reconfigure" pkg="rqt_reconfigure" type="rqt_reconfigure" />
