@@ -2,20 +2,20 @@
 
    	<arg name="open_rviz" default="false" />
    	<arg name="open_bag" default="false" />
-
+    <arg name="x_min" default="-0.5"/>
+    <arg name="x_max" default="0.5"/>
+    <arg name="y_min" default="0.2"/>
+    <arg name="y_max" default="2.5"/>  
+    <arg name="z_min" default="-2.5"/>
+    <arg name="z_max" default="2.5"/>
+    
     <node name="pc_filter" pkg="pc_filter_ros" type="pc_filter" output="screen">
-        <!-- <param name="min_limit_x" value="-10" />
-        <param name="max_limit_x" value="10" />
-        <param name="min_limit_y" value="-10" />
-        <param name="max_limit_y" value="10" />
-        <param name="min_limit_z" value="-10" />
-        <param name="max_limit_z" value="10" /> -->
-    <param name="x_min" value="0.6"/>
-    <param name="x_max" value="2.0"/>
-    <param name="y_min" value="-1.2"/>
-    <param name="y_max" value="1.2"/>
-    <param name="z_min" value="-5.0"/>
-    <param name="z_max" value="5.0"/>
+        <param name="x_min" value="$(arg x_min)"/>
+        <param name="x_max" value="$(arg x_max)"/>
+        <param name="y_min" value="$(arg y_min)"/>
+        <param name="y_max" value="$(arg y_max)"/>
+        <param name="z_min" value="$(arg z_min)"/>
+        <param name="z_max" value="$(arg z_max)"/>
         <param name="reversed_filter" value="False"/>  
         <param name="observed_frame_id" value="os_sensor"/>
         <param name="filtered_frame_id" value="os_filtered" />
